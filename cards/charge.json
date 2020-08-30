@@ -1,0 +1,10 @@
+{
+  "name": "Charge"
+  , "color": "Red"
+  , "Costs": 
+    [ { "Tempo" : "5"
+      } 
+    ]
+  , "Text" : "[o][x]"
+  , "discard": true
+}

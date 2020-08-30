@@ -1,0 +1,177 @@
+<html>
+  <script src="cards.js" ></script>
+
+<style>
+  html { -webkit-print-color-adjust: exact; 
+    font-family: Ariel;
+  }
+  .card {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 11em;
+    height: 14em;
+    padding: 10px;
+    margin: 4px;
+    border: 1px black solid;
+    vertical-align: top;
+  }
+
+  .cost {
+    margin-right: 0.5em;
+  }
+
+  .costs {
+    border-bottom: 2px black dotted;
+    margin-bottom: 3px;
+    padding-bottom: 6px;
+    overflow: auto;
+  }
+
+  .req{
+    float: right;
+    border: 1px black solid;
+  }
+
+  .foots {
+    border-top: 2px black dotted;
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .foot {
+    margin-right: 0.5em;
+  }
+
+  .name {
+    font-size: 1.2em;
+    border-bottom: 2px black dotted;
+    margin-bottom: 3px;
+  }
+
+</style>
+
+  <body>
+    <h2>0. Experience goal</h2>
+    1. In your face mocking, "Hahaha I got you". Not supposed to be 1.5 hours of resource management followed by counting points. <br>
+    2. "Exciting" card reveals with a potential for insanely lucky comebacks. (Similar to poker all-in) <br>
+    3. Easy to approach deck building <br>
+    4. Short game (45 min), little suffering <br>
+
+    <h2>1. Board</h2>
+    ⟴ marks players in starting positions.<br>
+    <img width="500px" src="board.png">
+    <h2>2. Character sheets</h2>
+    Three resources: 🗲 = Tempo, ⭐ = Magic, 😡 = Rage  <br>
+    <img width="800px" src="player.png">
+
+    <h2>3. Rules</h2>
+    Game consists of the two phases draft and combat.
+    <h2>3.1 Draft</h2>
+      Each player has a hand of max 7 cards. <br>
+      In parallel all players<br>
+      a) Draw 5 cards and keep at most 3 in hand. <br>
+      b) Choose, at most, 3 cards to use in combat. Chosen cards placed face down in chosen order.
+    <h3>3.2 Combat</h3>
+      All players reveal top card. <br>
+      Cards are resolved in order of 🗲. <br>
+
+
+    <h2>Card explanation.</h2>
+    <i>Combo:</i> Triggers on players consecutive actions <br>
+    <i>Behind:</i> Triggers when attack direction is one of three from behind<br>
+    <i>React:</i> Player may trigger this in reaction during another players attack. Discards after reaction.<br>
+    <b>Top left:</b> Cost to play. <br>
+    <b>Top right:</b> Requirement to play <br>
+    <i>Discard:</i> Card goes to discard after play <br>
+    <i>Perma:</i> Card stays in play <br>
+    <br>
+    <b>Symbol translation</b><br>
+    1. [⟲] <br>
+    2.[⟴][👣][❌] <br>
+    <br>
+    Is the same as<br>
+    <br>
+    1. Choose rotation <br>
+    2. Take one step ahead and attack field in front. <br>
+    <br>
+
+    <h2>4. Deck (Card ideas)</h2>
+    <div id="deck" style="vertical-align: top">
+    </div>
+
+    <script>
+      function typeToColor(name)
+      {
+        switch(name) {
+          case "Tempo":
+            return "#ffeba3";
+          case "Rage":
+            return "#ff9696";
+          case "Magic":
+            return "#a3d3ff";
+          case "TempoMagic":
+            return "#aeffa3";
+          case "RageMagic":
+            return "#daa3ff";
+        }
+      }
+
+      var frame = document.getElementById("deck");
+      for (var i = 0; i < deck.length; i++) {
+        var cardData = deck[i];
+        for (var j = 0; j < cardData.count; j++) {
+          var card = document.createElement("div");
+          card.classList.add("card");
+          card.style.backgroundColor = typeToColor(cardData.color)
+
+          var costs = document.createElement("div");
+          costs.classList.add("costs");
+
+          for (var k = 0; k < cardData.costs.length; k++) {
+            var cost = document.createElement("span");
+            var costName = document.createTextNode(cardData.costs[k].name);
+            var costNum = document.createTextNode(cardData.costs[k].amount);
+            cost.classList.add("cost");
+            cost.appendChild(costNum);
+            cost.appendChild(costName);
+            costs.appendChild(cost);
+          }
+
+          console.log(cardData.reqs);
+          for (var k = 0; k < cardData.reqs.length; k++) {
+            var req = document.createElement("span");
+            var reqName = document.createTextNode(cardData.reqs[k]);
+            req.classList.add("req");
+            req.appendChild(reqName );
+            costs.appendChild(req);
+          }
+
+          var foots = document.createElement("div");
+          foots.classList.add("foots");
+          for (var k = 0; k < cardData.foots.length; k++) {
+            var foot = document.createElement("span");
+            foot.classList.add("foot");
+            foots.appendChild(document.createTextNode(cardData.foots[k]));
+            foots.appendChild(foot);
+          }
+
+          var nameFrame     = document.createElement("div");
+          nameFrame.classList.add("name");
+          var nameText = document.createTextNode(cardData.name);
+          nameFrame.appendChild(nameText);
+
+          var cardBody = document.createElement("span");
+          cardBody.innerHTML = cardData.text;
+
+          card.appendChild(costs);
+          card.appendChild(nameFrame);
+          card.appendChild(cardBody);
+          if (cardData.foots.length > 0)
+            card.appendChild(foots);
+          frame.appendChild(card);
+        }
+      }
+
+    </script>
+  </body>
+</html>
