@@ -186,88 +186,56 @@ var deck =
     , "foots" : []
     }
   ,
-
-  // ,
-  //   { "name": "Enchant weapon"
-  //   , "count": 1
-  //   , "color": "Magic"
-  //   , "reqs": [ "⭐" ]
-  //   , "costs": [ { name : "Magic" , amount : "1" } ]
-  //   , "text" : "<center><h3>1. [⟴]</h3>Next ⭐ dmg is tripled"
-  //   , "foots" : ["Discard"]
-  //   }
-
-
-    // // Magic
-    // { "name": "Hand-in-hand"
-    // , "count": 2
-    // , "color": "Magic"
-    // , "reqs": [ "⭐⭐" ]
-    // , "costs":
-    //   [ { name : "Magic"
-    //     , amount : "5"
-    //     }
-    //   , { name : "Tempo"
-    //     , amount : "4"
-    //     }
-    //   ]
-    // , "text" : "<h3><center>1. ⟲ <br> 2. [⟴][⭕]</center></h3>Deals ⭐ <br/> Jumps to all adjacent"
-    // , "foots" : []
-    // }
-
-  // ,
-  //   { "name": "Shrine"
-  //   , "count": 2
-  //   , "color": "Magic"
-  //   , "reqs": [ "⭐" ]
-  //   , "costs":
-  //     [ { name : "Magic"
-  //       , amount : "3"
-  //       }
-  //     ]
-  //   , "text" : "Player ending turn gets +1 ⭐"
-  //   , "foots" : ["Perma"]
-  //   }
-  // ,
-  //   { "name": "Mental barrier"
-  //   , "count": 2
-  //   , "color": "Magic"
-  //   , "reqs": [ "⭐" ]
-  //   , "costs":
-  //     [ { name : "Magic"
-  //       , amount : "2"
-  //       }
-  //     ]
-  //   , "text" : "Reduces damage taken 😡 by 2"
-  //   , "foots" : ["Perma"]
-  //   }
-  // ,
-  //   { "name": "Calming prayer"
-  //   , "count": 4
-  //   , "color": "Magic"
-  //   , "reqs": [ "⭐" ]
-  //   , "costs":
-  //     [ { name : "Magic"
-  //       , amount : "2"
-  //       }
-  //     ]
-  //   , "text" : "<h3><center>1. ⮾</center></h3>Reduces 😡 to ½."
-  //   , "foots" : ["Discard"]
-  //   }
-  // ,
-
-  // //
-  //   { "name": "Spirit"
-  //   , "count": 2
-  //   , "color": "Magic"
-  //   , "reqs": [ "⭐" ]
-  //   , "costs":
-  //     [ { name : "Magic"
-  //       , amount : "5"
-  //       }
-  //     ]
-  //   , "text" : "Player ending turn gets +1 ⭐"
-  //   , "foots" : ["Perma"]
-  //   }
+  { "name": "Steal"
+    , "count": 1
+    , "color": "Tempo"
+    , "reqs": [ "🗲🗲"]
+    , "costs":
+      [ { name : "🗲"
+        , amount : "6"
+        }
+      ]
+    , "text" : "Combo: Steal an equipped item"
+    , "foots" : ["Discard"]
+    }
+  ,
+  { "name": "Ring of haste"
+    , "count": 1
+    , "color": "Equip"
+    , "reqs": []
+    , "costs":
+      [ { name : "🗲"
+        , amount : "3"
+        }
+      ]
+    , "text" : "On any combo: Gain 2 ⭐ <br><br> (Ring)"
+    , "foots" : ["Equip ring"]
+    }
+  ,
+  { "name": "Blunt sword"
+    , "count": 1
+    , "color": "Equip"
+    , "reqs": []
+    , "costs":
+      [ { name : "🗲"
+        , amount : "5"
+        }
+      ]
+    , "text" : "+1 to 🗡️. <br><br>"
+    , "foots" : ["Equip weapon"]
+    }
+  ,
+  { "name": "Leather armor"
+    , "count": 1
+    , "color": "Equip"
+    , "reqs": []
+    , "costs":
+      [ { name : "🗲"
+        , amount : "3"
+        }
+      ]
+    , "text" : "Reduce -2 to 🗡️ taken. <br>Gain -2 🗲 <br> (Armor)"
+    , "foots" : ["Equip armor"]
+    }
 
   ]
