@@ -300,6 +300,13 @@ var deck =
       , h2("⚔️") + "d4"
       ]
     },
+    { "name": "Evade Attack"
+    , "tag": rogue + "*"
+    , "text" :
+      [ "Negate all dmg taken"
+      , "Combine with other card"
+      ]
+    },
     { "name": "Shadow Step"
     , "tag": rogue
     , "text" :
@@ -371,6 +378,13 @@ var deck =
       ]
     },
     // Tank
+    { "name": "Armor Up"
+    , "tag": tank + "*"
+    , "text" :
+      [ ""
+      , h2("🛡") + " d10"
+      ]
+    },
     { "name": "Basic Warrior"
     , "tag": tank
     , "text" :
@@ -453,6 +467,13 @@ var deck =
     , "text" :
       [ ""
       , h2("🏹") + " Range 4, d8 dmg"
+      ]
+    },
+    { "name": "Build Plateau"
+    , "tag": hunter + "*"
+    , "text" :
+      [ ""
+      , "Always hit target from this spot"
       ]
     },
     { "name": "Take Aim"
@@ -569,6 +590,20 @@ var deck =
         "Swap place with ☀️"
       ]
     },
+    { "name": "Greater Heal"
+    , "tag": heal + "*"
+    , "text" :
+      [ "",
+        "Heal d10"
+      ]
+    },
+    { "name": "Alleviate"
+    , "tag": heal + "*"
+    , "text" :
+      [ "",
+        "???"
+      ]
+    },
     { "name": "Aura: Armor"
     , "tag": heal
     , "text" :
@@ -664,6 +699,38 @@ var deck =
     , "text" :
       [ ""
       , h1("➡️")
+      ]
+    },
+    { "amount": 4
+    , "tag": player
+    , "name": "Red Gem"
+    , "text" :
+      [ ""
+      , "Red Gem"
+      ]
+    },
+    { "amount": 4
+    , "tag": player
+    , "name": "Blue Gem"
+    , "text" :
+      [ ""
+      , "Blue Gem"
+      ]
+    },
+    { "amount": 4
+    , "tag": player
+    , "name": "Green Gem"
+    , "text" :
+      [ ""
+      , "Green Gem"
+      ]
+    },
+    { "amount": 4
+    , "tag": player
+    , "name": "Purple Gem"
+    , "text" :
+      [ ""
+      , "Purple Gem"
       ]
     },
   ]
