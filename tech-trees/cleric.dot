@@ -1,0 +1,10 @@
+digraph G {
+  cleric1 [label="Add 4hp to sun"]
+  cleric2 [label="You may burn a card to deal d6 dmg"]
+  cleric_card1 [label="Add card \"Greater Heal\""]
+  cleric_card2 [label="Add card \"___\""]
+  cleric_trait [label="When there is more spaces between you and sun. 2 dmg per round to target of your choice"]
+
+  cleric1 -> cleric2
+  cleric_card1 -> cleric_card2
+}

@@ -1,0 +1,10 @@
+digraph G {
+  ba1 [label="+1 to all attacks"]
+  red2 [label="Reduce all dmg taken by 1"]
+  rogue_card1 [label="Add card \"Evade attack\""]
+  rogue_card2 [label="Add card \"????\""]
+  rogue_trait [label="Deal 1.5x dmg when below 50% hp"]
+
+  ba1 -> red2
+  rogue_card1 -> rogue_card2
+}

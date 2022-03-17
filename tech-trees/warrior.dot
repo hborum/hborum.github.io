@@ -1,0 +1,9 @@
+digraph G {
+  health [label="+5 hp"]
+  armor [label="+5 max armor"]
+  card1 [label="Add card \"Health pot, d6 hp\""]
+  card2 [label="Add card \"Armor up\""]
+  health -> armor
+  armor -> card2
+  card1 -> card2
+}

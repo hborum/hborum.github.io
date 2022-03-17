@@ -1,0 +1,10 @@
+digraph G {
+  hunter1 [label="Do not roll with disadvantage in melee"]
+  hunter2 [label=""]
+  hunter_card1 [label="Add card \"Build Plateau\""]
+  hunter_card2 [label="Add card \"___\""]
+  hunter_trait [label=""]
+
+  hunter1 -> hunter2
+  hunter_card1 -> hunter_card2
+}
