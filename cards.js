@@ -1,14 +1,15 @@
 function h1(v) {return "<h1>"+v+"</h1>"}
 function h2(v) {return "<h2>"+v+"</h2>"}
 
-var boss1 = "🔨"
-var boss2 = "🍄"
-var rogue = "🗡️"
-var tank = "🛡"
-var hunter = "🏹"
-var heal = "☀️"
-var player = "*"
+var boss1  = {icon : "🔨", nm: "hammer"}
+var boss2  = {icon : "🍄", nm: "shroom"}
+var rogue  = {icon : "🗡️", nm: "rogue"}
+var tank   = {icon : "🛡", nm: "warrior"}
+var hunter = {icon : "🏹", nm: "hunter"}
+var heal   = {icon : "☀️", nm: "cleric"}
+var player = {icon : "*",   nm: "*"}
 
+var categories = [boss1 , boss2, rogue, tank, hunter, heal, player]
 
 var deck =
   [
@@ -25,7 +26,8 @@ var deck =
          0,1,1,0
         ]
       ]
-    },
+    }
+    ,
     { "name": "Spear"
     , "tag": boss1
     , "text" :
@@ -301,7 +303,7 @@ var deck =
       ]
     },
     { "name": "Evade Attack"
-    , "tag": rogue + "*"
+    , "tag": rogue
     , "text" :
       [ "Negate all dmg taken"
       , "Combine with other card"
@@ -379,7 +381,7 @@ var deck =
     },
     // Tank
     { "name": "Armor Up"
-    , "tag": tank + "*"
+    , "tag": tank
     , "text" :
       [ ""
       , h2("🛡") + " d10"
@@ -470,7 +472,7 @@ var deck =
       ]
     },
     { "name": "Build Plateau"
-    , "tag": hunter + "*"
+    , "tag": hunter
     , "text" :
       [ ""
       , "Always hit target from this spot"
@@ -591,14 +593,14 @@ var deck =
       ]
     },
     { "name": "Greater Heal"
-    , "tag": heal + "*"
+    , "tag": heal
     , "text" :
       [ "",
         "Heal d10"
       ]
     },
     { "name": "Alleviate"
-    , "tag": heal + "*"
+    , "tag": heal
     , "text" :
       [ "",
         "???"
