@@ -3,13 +3,19 @@ function h2(v) {return "<h2>"+v+"</h2>"}
 
 var boss1  = {icon : "🔨", nm: "hammer"}
 var boss2  = {icon : "🍄", nm: "shroom"}
-var rogue  = {icon : "🗡️", nm: "rogue"}
-var tank   = {icon : "🛡", nm: "warrior"}
+
+var dagger  = {icon : "🗡️", nm: "dagger"}
+var sword  = {icon : "⚔️", nm: "sword"}
 var hunter = {icon : "🏹", nm: "hunter"}
-var heal   = {icon : "☀️", nm: "cleric"}
+var mind = {icon : "🧠", nm: "mind"}
+
+var shield   = {icon : "🛡", nm: "shield"}
+var cleric   = {icon : "☀️", nm: "cleric"}
+var evade   = {icon : "🕵️‍", nm: "evade"}
+
 var player = {icon : "*",   nm: "*"}
 
-var categories = [boss1 , boss2, rogue, tank, hunter, heal, player]
+var categories = [boss1 , boss2, dagger, shield, sword, hunter, mind, cleric, player]
 
 var deck =
   [
@@ -256,7 +262,7 @@ var deck =
     , "tag": boss2
     , "text" :
       [ ""
-      , "Gain d10 health per mushroom"
+      , "Gain d10 clericth per mushroom"
       , ""
       , "Remove all "+h2("🍄")
       , ""
@@ -289,139 +295,134 @@ var deck =
       , "Shuffle deck"
       ]
     },
-    // Rouge
-    { "name": "Basic Rogue"
-    , "tag": rogue
+    // Mind
+    { "name": "Basic Mind"
+    , "tag": mind
     , "text" :
       [ ""
-      , h2("⚔️") + "d8 per combo"
+      , "Copy action of ally this turn"
+      , ""
+      , "Take action after ally as if you were them (for modifiers)"
+      , ""
+      ]
+    },
+    { "name": "Revive"
+    , "tag": mind
+    , "text" :
+      [ ""
+      , "Target ally may move card from discard pile to hand."
+      , ""
+      ]
+    },
+    // Rouge
+    { "name": "Basic Dagger"
+    , "tag": dagger
+    , "text" :
+      [ ""
+      , h2("⚔️") + "d6 per combo"
       , ""
       , "-- or --"
       , ""
       , "Combine with move"
-      , h2("⚔️") + "d4"
-      ]
-    },
-    { "name": "Evade Attack"
-    , "tag": rogue
-    , "text" :
-      [ "Negate all dmg taken"
-      , "Combine with other card"
-      ]
-    },
-    { "name": "Shadow Step"
-    , "tag": rogue
-    , "text" :
-      [ ""
-      , "Move anywhere within range 3"
-      ]
-    },
-    { "name": "Strip"
-    , "tag": rogue
-    , "text" :
-      [ ""
-      , "Remove all armor from melee target"
-      , ""
-      , "- or --"
-      , ""
-      , h2("⚔️") + "d4"
-      ]
-    },
-    { "name": "Poison"
-    , "tag": rogue
-    , "text" :
-      [ ""
       , h2("⚔️") + "d2"
-      , ""
-      , "Target receives double damage next turn"
-      ]
-    },
-    { "name": "Fan"
-    , "tag": rogue
-    , "text" :
-      [ ""
-      , "2 damage to all characters within range 2"
       ]
     },
     { "name": "Dash"
-    , "tag": rogue
+    , "tag": dagger
     , "text" :
       [ ""
       , "Combine with movement card"
       , ""
-      , "Double movement, pass through"
-      , ""
       , h2("⚔️") + "d4"
       ]
     },
-    { "name": "Shadow Evade"
-    , "tag": rogue
+
+    // { "name": "Evade Attack"
+    // , "tag": dagger
+    // , "text" :
+    //   [ "Negate all dmg taken"
+    //   , "Combine with other card"
+    //   ]
+    // },
+    // { "name": "Shadow Step"
+    // , "tag": dagger
+    // , "text" :
+    //   [ ""
+    //   , "Move anywhere within range 3"
+    //   ]
+    // },
+    // { "name": "Strip"
+    // , "tag": dagger
+    // , "text" :
+    //   [ ""
+    //   , "Remove all armor from melee target"
+    //   , ""
+    //   , "- or --"
+    //   , ""
+    //   , h2("⚔️") + "d4"
+    //   ]
+    // },
+    // { "name": "Poison"
+    // , "tag": dagger
+    // , "text" :
+    //   [ ""
+    //   , h2("⚔️") + "d2"
+    //   , ""
+    //   , "Target receives double damage next turn"
+    //   ]
+    // },
+    // { "name": "Fan"
+    // , "tag": dagger
+    // , "text" :
+    //   [ ""
+    //   , "2 damage to all characters within range 2"
+    //   ]
+    // },
+    // { "name": "Shadow Evade"
+    // , "tag": dagger
+    // , "text" :
+    //   [ ""
+    //   , "Reduce damage taken by 75% until end of next round"
+    //   , ""
+    //   , "Other entities may occupy your space"
+    //   ]
+    // },
+    // { "name": "Throwing Knife"
+    // , "tag": dagger
+    // , "text" :
+    //   [ ""
+    //   , h1("⬇️")
+    //   , h2("🏹") + ": Range 2, Dmg d4"
+    //   ]
+    // },
+    // { "name": "Stab"
+    // , "tag": dagger
+    // , "text" :
+    //   [ ""
+    //   , h1("⬆️")
+    //   , h2("⚔️") + ": d4"
+    //   ]
+    // },
+    // shield
+    // { "name": "Armor Up"
+    // , "tag": shield
+    // , "text" :
+    //   [ ""
+    //   , h2("🛡") + " d10"
+    //   ]
+    // },
+
+    { "name": "Basic Sword"
+    , "tag": sword
     , "text" :
-      [ ""
-      , "Reduce damage taken by 75% until end of next round"
+      [ "", ""
+      , "Combine with card"
       , ""
-      , "Other entities may occupy your space"
-      ]
-    },
-    { "name": "Throwing Knife"
-    , "tag": rogue
-    , "text" :
-      [ ""
-      , h1("⬇️")
-      , h2("🏹") + ": Range 2, Dmg d4"
-      ]
-    },
-    { "name": "Stab"
-    , "tag": rogue
-    , "text" :
-      [ ""
-      , h1("⬆️")
-      , h2("⚔️") + ": d4"
-      ]
-    },
-    // Tank
-    { "name": "Armor Up"
-    , "tag": tank
-    , "text" :
-      [ ""
-      , h2("🛡") + " d10"
-      ]
-    },
-    { "name": "Basic Warrior"
-    , "tag": tank
-    , "text" :
-      [ ""
-      , h2("🛡") + " d4"
       , h2("⚔️") + " d4"
       ]
     },
-    { "name": "Roar"
-    , "tag": tank
-    , "text" :
-      [ ""
-      , "All allies deal 2 more dmg per attach next turn"
-      ]
-    },
-    { "name": "Rush"
-    , "tag": tank
-    , "text" :
-      [ ""
-      , "Combine with move"
-      , ""
-      , "Triple move"
-      ]
-    },
-    { "name": "Dodge"
-    , "tag": tank
-    , "text" :
-      [ ""
-      , "Combine with movement, double"
-      , ""
-      , h2("🛡") + " d2"
-      ]
-    },
     { "name": "Charge"
-    , "tag": tank
+    , "tag": sword
     , "text" :
       [ ""
       , "Charge straight ahead"
@@ -429,55 +430,88 @@ var deck =
       , h2("⚔️") + " d4 per movement"
       ]
     },
-    { "name": "Reflect"
-    , "tag": tank
+
+    { "name": "Basic Shield"
+    , "tag": shield
     , "text" :
       [ ""
-      , "Return any damage received"
+      , h2("🛡") + " d6"
       ]
     },
-    { "name": "Armor shatter"
-    , "tag": tank
+    // { "name": "Roar"
+    // , "tag": shield
+    // , "text" :
+    //   [ ""
+    //   , "All allies deal 2 more dmg per attach next turn"
+    //   ]
+    // },
+    // { "name": "Rush"
+    // , "tag": shield
+    // , "text" :
+    //   [ ""
+    //   , "Combine with move"
+    //   , ""
+    //   , "Triple move"
+    //   ]
+    // },
+    { "name": "Dodge"
+    , "tag": shield
     , "text" :
       [ ""
-      , h2("⚔️") + " #armor"
+      , "Combine with movement, double"
       , ""
-      , "Remove all armor"
+      , h2("🛡") + " d2"
       ]
     },
-    { "name": "Bandage"
-    , "tag": tank
-    , "text" :
-      [ ""
-      , "Receive double damage entire next round"
-      , ""
-      , h2("❤️") + " d8"
-      ]
-    },
-    { "name": "Protect"
-    , "tag": tank
-    , "text" :
-      [ ""
-      , h2("🛡") + " d4"
-      , ""
-      , "Receive all damage instead of allies within range 2."
-      ]
-    },
+    // { "name": "Reflect"
+    // , "tag": shield
+    // , "text" :
+    //   [ ""
+    //   , "Return any damage received"
+    //   ]
+    // },
+    // { "name": "Armor shatter"
+    // , "tag": shield
+    // , "text" :
+    //   [ ""
+    //   , h2("⚔️") + " #armor"
+    //   , ""
+    //   , "Remove all armor"
+    //   ]
+    // },
+    // { "name": "Bandage"
+    // , "tag": shield
+    // , "text" :
+    //   [ ""
+    //   , "Receive double damage entire next round"
+    //   , ""
+    //   , h2("❤️") + " d8"
+    //   ]
+    // },
+    // { "name": "Protect"
+    // , "tag": shield
+    // , "text" :
+    //   [ ""
+    //   , h2("🛡") + " d4"
+    //   , ""
+    //   , "Receive all damage instead of allies within range 2."
+    //   ]
+    // },
     // Hunter
     { "name": "Basic Hunter"
     , "tag": hunter
     , "text" :
       [ ""
-      , h2("🏹") + " Range 4, d8 dmg"
+      , h2("🏹") + " Range 4, d6 dmg"
       ]
     },
-    { "name": "Build Plateau"
-    , "tag": hunter
-    , "text" :
-      [ ""
-      , "Always hit target from this spot"
-      ]
-    },
+    // { "name": "Build Plateau"
+    // , "tag": hunter
+    // , "text" :
+    //   [ ""
+    //   , "Always hit target from this spot"
+    //   ]
+    // },
     { "name": "Take Aim"
     , "tag": hunter
     , "text" :
@@ -485,98 +519,98 @@ var deck =
       , "3x dmg on next action"
       ]
     },
-    { "name": "Multi Shot"
-    , "tag": hunter
-    , "text" :
-      [ "",
-        "Combine with any number of movement"
-       ,"For each, in that direction"
-       , h2("🏹") + " Range 4, d6 dmg"
-      ]
-    },
-    { "name": "Stun Trap"
-    , "tag": hunter
-    , "text" :
-      [ "",
-        "Place a trap on an adjacent tile"
-       , ""
-       ,"Any character stepping on it is stunned for next action"
-       , ""
-       , "Card stays in place until trap is triggered"
-      ]
-    },
-    { "name": "Short Shot"
-    , "tag": hunter
-    , "text" :
-      [ "",
-        "Move two spaces forward"
-       , ""
-       ,"After complete two moves"
-       , ""
-       , h2("🏹") + " Range 2, d4 dmg"
-      ]
-    },
-    { "name": "Poison Arrow"
-    , "tag": hunter
-    , "text" :
-      [ "",
-        "Your next arrow infects d6 dmg at end of next 3 rounds"
-       , ""
-      ]
-    },
-    { "name": "Grappling Hook"
-    , "tag": hunter
-    , "text" :
-      [ "",
-        h2("🏹") + "Range 4"
-       , ""
-       , "Pull yourself to target/wall"
-       , ""
-       , "-- or --"
-       , ""
-       ,"Pull (small) target next to you"
-       , ""
-      ]
-    },
-    { "name": "Blunt Shot"
-    , "tag": hunter
-    , "text" :
-      [ "",
-        h2("🏹") + "Range 4, dmg 4"
-       , ""
-       ,"(small) Knockback 4"
-       , ""
-      ]
-    },
-    { "name": "Move 'n Shoot"
-    , "tag": hunter
-    , "text" :
-      [ ""
-       , "Combine with 2 moves"
-       , ""
-       , h2("🏹") + "Range 4, dmg d6"
-       , ""
-       ,""
-       , ""
-      ]
-    },
-    { "name": "Confuse"
-    , "tag": hunter
-    , "text" :
-      [ "",
-        "Range 4"
-       , ""
-       ,"Shuffle played cards, and replay two at random"
-       , ""
-      ]
-    },
-    // Healer
+    // { "name": "Multi Shot"
+    // , "tag": hunter
+    // , "text" :
+    //   [ "",
+    //     "Combine with any number of movement"
+    //    ,"For each, in that direction"
+    //    , h2("🏹") + " Range 4, d6 dmg"
+    //   ]
+    // },
+    // { "name": "Stun Trap"
+    // , "tag": hunter
+    // , "text" :
+    //   [ "",
+    //     "Place a trap on an adjacent tile"
+    //    , ""
+    //    ,"Any character stepping on it is stunned for next action"
+    //    , ""
+    //    , "Card stays in place until trap is triggered"
+    //   ]
+    // },
+    // { "name": "Short Shot"
+    // , "tag": hunter
+    // , "text" :
+    //   [ "",
+    //     "Move two spaces forward"
+    //    , ""
+    //    ,"After complete two moves"
+    //    , ""
+    //    , h2("🏹") + " Range 2, d4 dmg"
+    //   ]
+    // },
+    // { "name": "Poison Arrow"
+    // , "tag": hunter
+    // , "text" :
+    //   [ "",
+    //     "Your next arrow infects d6 dmg at end of next 3 rounds"
+    //    , ""
+    //   ]
+    // },
+    // { "name": "Grappling Hook"
+    // , "tag": hunter
+    // , "text" :
+    //   [ "",
+    //     h2("🏹") + "Range 4"
+    //    , ""
+    //    , "Pull yourself to target/wall"
+    //    , ""
+    //    , "-- or --"
+    //    , ""
+    //    ,"Pull (small) target next to you"
+    //    , ""
+    //   ]
+    // },
+    // { "name": "Blunt Shot"
+    // , "tag": hunter
+    // , "text" :
+    //   [ "",
+    //     h2("🏹") + "Range 4, dmg 4"
+    //    , ""
+    //    ,"(small) Knockback 4"
+    //    , ""
+    //   ]
+    // },
+    // { "name": "Move 'n Shoot"
+    // , "tag": hunter
+    // , "text" :
+    //   [ ""
+    //    , "Combine with 2 moves"
+    //    , ""
+    //    , h2("🏹") + "Range 4, dmg d6"
+    //    , ""
+    //    ,""
+    //    , ""
+    //   ]
+    // },
+    // { "name": "Confuse"
+    // , "tag": hunter
+    // , "text" :
+    //   [ "",
+    //     "Range 4"
+    //    , ""
+    //    ,"Shuffle played cards, and replay two at random"
+    //    , ""
+    //   ]
+    // },
+    // clericer
     { "name": "Basic Sun Cleric"
-    , "tag": heal
+    , "tag": cleric
     , "text" :
       [ "",
         "Summon ☀️ within range two.",
-        "☀️ is immaterial but has 6hp"
+        "☀️ is immaterial"
        , ""
        ,"--- or ---"
        , ""
@@ -585,91 +619,91 @@ var deck =
        , "Combine with any other card played as normal"
       ]
     },
-    { "name": "Teleport"
-    , "tag": heal
-    , "text" :
-      [ "",
-        "Swap place with ☀️"
-      ]
-    },
-    { "name": "Greater Heal"
-    , "tag": heal
-    , "text" :
-      [ "",
-        "Heal d10"
-      ]
-    },
-    { "name": "Alleviate"
-    , "tag": heal
-    , "text" :
-      [ "",
-        "???"
-      ]
-    },
-    { "name": "Aura: Armor"
-    , "tag": heal
-    , "text" :
-      [ "All allies in range 1 of ☀️",
-        "Reduce damage taken by 1 ",
-        "Stays in play"
-      ]
-    },
+    // { "name": "Teleport"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "",
+    //     "Swap place with ☀️"
+    //   ]
+    // },
+    // { "name": "Greater cleric"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "",
+    //     "cleric d10"
+    //   ]
+    // },
+    // { "name": "Alleviate"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "",
+    //     "???"
+    //   ]
+    // },
+    // { "name": "Aura: Armor"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "All allies in range 1 of ☀️",
+    //     "Reduce damage taken by 1 ",
+    //     "Stays in play"
+    //   ]
+    // },
     { "name": "Aura: Luck"
-    , "tag": heal
+    , "tag": cleric
     , "text" :
       [ "All allies in range 1 of ☀️",
         "Roll with advantage  ",
         "Stays in play"
       ]
     },
-    { "name": "Chain Heal"
-    , "tag": heal
-    , "text" :
-      [ "All allies on row or column with ☀️", ""
-      , "Heal d10"
-      , "Remove any aura effect"
-      ]
-    },
-    { "amount": 1
-    , "name": "Foresight"
-    , "tag": heal
-    , "text" :
-      [ "Draw 2 cards"
-      ]
-    },
-    { "name": "Mind Control"
-    , "tag": heal
-    , "text" :
-      [ "Order boss next four cards"
-      ]
-    },
-    { "name": "Sunbeams"
-    , "tag": heal
-    , "text" :
-      [ "Any target:"
-      , ""
-      , "Heal 2 in end of next 4 round"
-      , ""
-      , "--- or ---"
-      , ""
-      , "Deal d6 dmg in end of next 4 round"
+    // { "name": "Chain cleric"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "All allies on row or column with ☀️", ""
+    //   , "cleric d10"
+    //   , "Remove any aura effect"
+    //   ]
+    // },
+    // { "amount": 1
+    // , "name": "Foresight"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "Draw 2 cards"
+    //   ]
+    // },
+    // { "name": "Mind Control"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "Order boss next four cards"
+    //   ]
+    // },
+    // { "name": "Sunbeams"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "Any target:"
+    //   , ""
+    //   , "cleric 2 in end of next 4 round"
+    //   , ""
+    //   , "--- or ---"
+    //   , ""
+    //   , "Deal d6 dmg in end of next 4 round"
 
-      ]
-    },
-    { "name": "Sunburst"
-    , "tag": heal
-    , "text" :
-      [ "","","To a character in range 2 of ☀️",
-        "d10 dmg"
-      ]
-    },
-    { "name": "Lightning"
-    , "tag": heal
-    , "text" :
-      [ ""
-      , h2("⚔️") + " d8"
-      ]
-    },
+    //   ]
+    // },
+    // { "name": "Sunburst"
+    // , "tag": cleric
+    // , "text" :
+    //   [ "","","To a character in range 2 of ☀️",
+    //     "d10 dmg"
+    //   ]
+    // },
+    // { "name": "Lightning"
+    // , "tag": cleric
+    // , "text" :
+    //   [ ""
+    //   , h2("⚔️") + " d8"
+    //   ]
+    // },
     // Player Move
     { "amount": 4
     , "tag": player

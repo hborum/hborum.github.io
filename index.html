@@ -106,20 +106,24 @@
 
 </style>
 
-  <body onLoad="render()">
+  <body onLoad="doLoad()">
     <div id="selection">
     </div>
     <div id="deck" style="vertical-align: top">
     </div>
 
     <script>
-      catSelect = {};
-      for(var i = 0; i < categories.length; i++) {
-        if (localStorage.getItem(i + "select")){
-          catSelect[i] = localStorage.getItem(i + "select");
-        } else {
-          catSelect[i] = false;
+      function doLoad() {
+        catSelect = {};
+        for(var i = 0; i < categories.length; i++) {
+          if (localStorage.getItem(i + "select")){
+            catSelect[i] = localStorage.getItem(i + "select") === "true";
+            console.log(localStorage.getItem(i + "select"))
+          } else {
+            catSelect[i] = false;
+          }
         }
+        render();
       }
       function typeToColor(name)
       {
@@ -166,7 +170,7 @@
 
       function selectCat(i) {
         catSelect[i] = catSelect[i] == false;
-        localStorage.setItem(i + "select", "true");
+        localStorage.setItem(i + "select", catSelect[i]);
         render();
       }
 
