@@ -1,21 +1,61 @@
 function h1(v) {return "<h1>"+v+"</h1>"}
 function h2(v) {return "<h2>"+v+"</h2>"}
 
-var boss1  = {icon : "🔨", nm: "hammer"}
-var boss2  = {icon : "🍄", nm: "shroom"}
+function hpBox(text){
+  return "<span class=hp-box>"+text+"</span>"
+}
 
-var dagger  = {icon : "🗡️", nm: "dagger"}
-var sword  = {icon : "⚔️", nm: "sword"}
-var hunter = {icon : "🏹", nm: "hunter"}
-var mind = {icon : "🧠", nm: "mind"}
+var boss1 = { icon : "🔨"
+            , type: "boss"
+            , nm: "William Marshal"
+            , desc : "<p class=desc>Base dmg: 2 * player</p>" +hpBox("HP: 80") + "&nbsp;&nbsp;&nbsp;" + hpBox("Armor: max 80")
+            }
+var boss2  = {icon : "🍄"
+            , type: "boss"
+            , nm: "Gardener Jaromir"
+            , desc : "<div class=column>"+
+                       "<p class=desc style=\"font-size:1em\">"+
+                         "Plants three 🍄 at beginning of round at random coordinates.<br><br>"+
+                         "Shoot or step on to remove.<br><br>"+
+                         "They grow at end of round progressing:<br><br>"+
+                         "seed -> 🍄(d6) -> 🍄🍄(d8)<br> -> explode (d10, range 1)<br><br>"+
+                         "Replant 2 on explosion"+
+                         "</p></div>" +hpBox("HP: 80")}
 
-var shield   = {icon : "🛡", nm: "shield"}
-var cleric   = {icon : "☀️", nm: "cleric"}
-var evade   = {icon : "🕵️‍", nm: "evade"}
+var dagger  = { icon : "🗡️"
+              , type: "player"
+              , nm: "Rogue"
+              , desc : "<p class=desc>Gain a combo token a the end of every round you dealt damage to an enemy.<br><br>Combo track:"+
+                 "<p style=\"font-size:3em\">🔘🔘🔘🔘🔘🔘🔘🔘<br>🔘🔘🔘🔘🔘🔘🔘🔘</p></p>"}
+var sword  = { icon : "⚔️"
+             , type: "player"
+             , nm: "Duelist"
+             , desc : "<p class=desc>A melee combat expert. <br><br> Each attack has a 1 in 12 chance of being a critical hit.<br><br>Critical hits doubles all rolls.</p>"}
+var hunter = {icon : "🏹", nm: "Hunter"
+             , desc : "<p class=desc>All ranged attacks fires in a straight line. <br><br> Any ranged attack has a 50% risk of hitting any players on line with target.</p>"}
+var blood   = {icon : "🩸", nm: "Blood Mage"
+             , desc : "<p class=desc>Harvests life force as a source of power.<br><br>For every 10 dmg taken increase dmg dealt by 1.<br>Dmg taken track:"+
+                 "<p style=\"font-size:3em\">🔴🔴🔴🔴🔴<br>🔴🔴🔴🔴🔴</p></p>"}
+var wizard = {icon : "🪄", nm: "Sorcerer"
+             , desc : "<p class=desc>A master of arcane knowledge. Gains ✨ in beginning of round. <br><br>Power track:"+
+                 "<p style=\"font-size:3em\">✨✨✨✨✨✨✨✨<br>✨✨✨✨✨✨✨✨</p></p>"}
+var brute   = {icon : "🏏", nm: "Brute"
+             , desc : "<p class=desc>Brute lets their muscles do the talking.<br><br>Immune to stun effects.</p>"}
+
+var mind     = {icon : "🧠", nm: "Telepathic"
+             , desc : "<p class=desc>May pickup 2 cards and discard 1 on every draw.</p>"}
+var shield   = {icon : "🛡", nm: "Tank"
+             , desc : "<p class=desc>Uses armor to negate dmg<br><br>"+hpBox("Armor: 15")+"</p>"}
+var cleric   = {icon : "☀️", nm: "Cleric"
+             , desc : "<p class=desc>Moves ☀️ as a power source. ☀️ is immaterial and immune to damage. <br><br>At end of turn, if anyone stands on ☀️ both you and them heals for 1.</p>"}
+var spy      = {icon : "🕵️‍", nm: "Theif"
+             , desc : "<p class=desc>Theif receives double loot.</p>"}
+var berzerk  = {icon : "😡", nm: "Berzerk"
+             , desc : "<p class=desc>Deals 1.5x damage the action after receiving damage.</p>"}
 
 var player = {icon : "*",   nm: "*"}
 
-var categories = [boss1 , boss2, dagger, shield, sword, hunter, mind, cleric, player]
+var categories = [boss1, boss2, dagger, sword, hunter, blood, shield, mind, cleric, wizard, brute, spy, berzerk, player]
 
 var deck =
   [
@@ -71,7 +111,7 @@ var deck =
          0,0,0,0,
          0,0,0,0
         ]
-      , "Charge,"+ h2("⚔️") + ": base + (2*move)"
+      , "Charge, ⚔️: base + (2*move)"
       , [0,1,1,0,
          0,1,1,0,
          0,0,0,0,
@@ -295,6 +335,94 @@ var deck =
       , "Shuffle deck"
       ]
     },
+    // Wizard
+    { "name": "Basic Wizard"
+    , "tag": wizard
+    , "text" :
+      [ ""
+      , h2("✨") + " d6 shield of target until end of next turn"
+      , ""
+      , "-- or --"
+      , ""
+      , h2("✨✨") + " Range 3 - d10 dmg"
+      ]
+    },
+    { "name": "Ice Cube"
+    , "tag": wizard
+    , "text" :
+      [ ""
+      , h2("✨") + " Range 2"
+      , ""
+      , "Place obstacle on field lasts until end of next turn."
+      , ""
+      , "Obstacle trigger field effect and disappears on any hit"
+      ]
+    },
+    // Blood Mage
+    { "name": "Basic Blood Mage"
+    , "tag": blood
+    , "text" :
+      [ "Target range 3, either:"
+      , ""
+      , "Spend 2 " + h2("❤️")
+      , "d4 dmg end of next 4 rounds"
+      , "-- or --"
+      , "Spend 4 " + h2("❤️")
+      , "d12 dmg"
+      ]
+    },
+    { "name": "Life Drain"
+    , "tag": blood
+    , "text" :
+      [ ""
+      , ""
+      , ""
+      , "Until your next movement"
+      , ""
+      , "Drain d4 life per action"
+      ]
+    },
+    // Berzerk
+    { "name": "Basic Berzerk - Roar"
+    , "tag": berzerk
+    , "text" :
+      [ "Target range 3, either:"
+      , ""
+      , "Spend 2 " + h2("❤️")
+      , "d4 dmg end of next 4 rounds"
+      , "-- or --"
+      , "Spend 4 " + h2("❤️")
+      , "d12 dmg"
+      ]
+    },
+    { "name": "Life Drain"
+    , "tag": berzerk
+    , "text" :
+      [ ""
+      , ""
+      , ""
+      , "Until your next movement"
+      , ""
+      , "Drain d4 life per action"
+      ]
+    },
+    // Club
+    { "name": "Basic Brute"
+    , "tag": brute
+    , "text" :
+      [ "",""
+      , "Move adjacent obstacle"
+      , ""
+      , "Combine with move (for direction)"
+      ]
+    },
+    { "name": "Clubber"
+    , "tag": brute
+    , "text" :
+      [ "","",""
+      , "d10 dmg"
+      ]
+    },
     // Mind
     { "name": "Basic Mind"
     , "tag": mind
@@ -306,7 +434,7 @@ var deck =
       , ""
       ]
     },
-    { "name": "Revive"
+    { "name": "One Trick Pony"
     , "tag": mind
     , "text" :
       [ ""
@@ -337,20 +465,29 @@ var deck =
       ]
     },
 
-    // { "name": "Evade Attack"
+    // { "name": "spy Attack"
     // , "tag": dagger
     // , "text" :
     //   [ "Negate all dmg taken"
     //   , "Combine with other card"
     //   ]
     // },
-    // { "name": "Shadow Step"
-    // , "tag": dagger
-    // , "text" :
-    //   [ ""
-    //   , "Move anywhere within range 3"
-    //   ]
-    // },
+    { "name": "Basic Theif"
+    , "tag": spy
+    , "text" :
+      [ ""
+      , "Range 1"
+      , ""
+      , "Look at top two cards of target put one on bottom"
+      ]
+    },
+    { "name": "Shadow Step"
+    , "tag": spy
+    , "text" :
+      [ ""
+      , "Move anywhere within range 3"
+      ]
+    },
     // { "name": "Strip"
     // , "tag": dagger
     // , "text" :
@@ -610,7 +747,6 @@ var deck =
     , "text" :
       [ "",
         "Summon ☀️ within range two.",
-        "☀️ is immaterial"
        , ""
        ,"--- or ---"
        , ""
