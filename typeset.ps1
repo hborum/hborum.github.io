@@ -36,6 +36,15 @@ typst compile --format svg dragon-right-breath.typ out/dragon-right-breath.svg
 typst compile --format svg dragon-love.typ out/dragon-love.svg
 typst compile --format pdf dragon-physical.typ out/deck/physical/dragon.pdf
 typst compile --format png dragon-digital.typ out/deck/digital/dragon.png
+typst compile --format svg gardener-loot.typ out/gardener-loot.svg
+typst compile --format svg gardener-twisting-vines.typ out/gardener-twisting-vines.svg
+typst compile --format svg gardener-root.typ out/gardener-root.svg
+typst compile --format svg gardener-toxic-spores.typ out/gardener-toxic-spores.svg
+typst compile --format svg gardener-spores.typ out/gardener-spores.svg
+typst compile --format svg gardener-harvest.typ out/gardener-harvest.svg
+typst compile --format svg gardener-whip.typ out/gardener-whip.svg
+typst compile --format svg gardener-blossom.typ out/gardener-blossom.svg
+typst compile --format svg gardener-seed.typ out/gardener-seed.svg
 typst compile --format pdf gardener-physical.typ out/deck/physical/gardener.pdf
 typst compile --format png gardener-digital.typ out/deck/digital/gardener.png
 typst compile --format svg golem-stalag-might.typ out/golem-stalag-might.svg
