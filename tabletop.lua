@@ -1,6 +1,8 @@
 
-function onLoad()
-    
+function onChat(msg)
+    if msg == "spawn"
+    then
+        
     local deckJSON = [[
         {"Name":"Deck","Transform":{"posX":0,"posY":2,"posZ":0,"rotX":0,"rotY":180,"rotZ":180,"scaleX":2.0,"scaleY":2.0,"scaleZ":2.0},"CustomDeck":{"1":{"FaceURL":"https://hborum.github.io/out/deck/digital/raging-bull.png","BackURL":"https://hborum.github.io/backs/raging-bull.png","NumWidth":10,"NumHeight":7,"BackIsHidden":true}},"DeckIDs":[100,101,102,103,104,105,106],"ContainedObjects":[{"Name":"Card","CardID":100,"Nickname":"Slash"},{"Name":"Card","CardID":101,"Nickname":"Right Horn"},{"Name":"Card","CardID":102,"Nickname":"Left Horn"},{"Name":"Card","CardID":103,"Nickname":"Thunderous Hooves"},{"Name":"Card","CardID":104,"Nickname":"Gore"},{"Name":"Card","CardID":105,"Nickname":"Gallop"},{"Name":"Card","CardID":106,"Nickname":"Bull Rush"}],"HideWhenFaceDown":false}
     ]]
@@ -71,4 +73,5 @@ function onLoad()
     ]]
     spawnObjectJSON({json = deckJSON, position = {26, 2, 14}})
 
+    end
 end
