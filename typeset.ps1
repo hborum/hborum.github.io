@@ -186,8 +186,8 @@ typst compile --format svg draft-throw.typ out/draft-throw.svg
 typst compile --format svg draft-salt-to-wound.typ out/draft-salt-to-wound.svg
 typst compile --format pdf draft-physical.typ out/deck/physical/draft.pdf
 typst compile --format png draft-digital.typ out/deck/digital/draft.png
-typst compile --format pdf leylineDeck-physical.typ out/deck/physical/leylineDeck.pdf
-typst compile --format png leylineDeck-digital.typ out/deck/digital/leylineDeck.png
+typst compile --format pdf leylinedeck-physical.typ out/deck/physical/leylinedeck.pdf
+typst compile --format png leylinedeck-digital.typ out/deck/digital/leylinedeck.png
 typst compile --format pdf all-physical.typ out/deck/physical/all.pdf
 typst compile --format png all-digital.typ out/deck/digital/all.png
 typst compile --format svg trigger-TwoReds.typ out/trigger-TwoReds.svg
