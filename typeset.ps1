@@ -136,7 +136,6 @@ typst compile --format svg draft-shadows-of-doubt.typ out/draft-shadows-of-doubt
 typst compile --format svg draft-hook.typ out/draft-hook.svg
 typst compile --format svg draft-lead.typ out/draft-lead.svg
 typst compile --format svg draft-jumping-attack.typ out/draft-jumping-attack.svg
-typst compile --format svg draft-throw.typ out/draft-throw.svg
 typst compile --format svg draft-blow-dart.typ out/draft-blow-dart.svg
 typst compile --format svg draft-temper.typ out/draft-temper.svg
 typst compile --format svg draft-flaming-arrow.typ out/draft-flaming-arrow.svg
