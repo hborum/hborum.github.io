@@ -161,6 +161,14 @@ typst compile --format svg draft-deep-focus.typ out/draft-deep-focus.svg
 typst compile --format svg draft-protect.typ out/draft-protect.svg
 typst compile --format svg draft-taunt.typ out/draft-taunt.svg
 typst compile --format svg draft-bad-meat.typ out/draft-bad-meat.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
+typst compile --format svg draft-move.typ out/draft-move.svg
 typst compile --format pdf draft-physical.typ out/deck/physical/draft.pdf
 typst compile --format png draft-digital.typ out/deck/digital/draft.png
 typst compile --format svg raging-bull-leyline.typ out/raging-bull-leyline.svg
