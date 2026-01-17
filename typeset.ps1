@@ -108,9 +108,9 @@ typst compile --format pdf saurian-physical.typ out/deck/physical/saurian.pdf
 typst compile --format png saurian-digital.typ out/deck/digital/saurian.png
 typst compile --format svg saurian-board.typ saurian-board.svg
 typst compile --format png saurian-board.typ out/deck/digital/saurian-board.png
-typst compile --format svg stalker-loose.typ out/stalker-loose.svg
-typst compile --format svg stalker-scoot-n-shoot.typ out/stalker-scoot-n-shoot.svg
-typst compile --format svg stalker-hookshot.typ out/stalker-hookshot.svg
+typst compile --format svg stalker-shoot.typ out/stalker-shoot.svg
+typst compile --format svg stalker-shoot-n-move.typ out/stalker-shoot-n-move.svg
+typst compile --format svg stalker-aim.typ out/stalker-aim.svg
 typst compile --format pdf stalker-physical.typ out/deck/physical/stalker.pdf
 typst compile --format png stalker-digital.typ out/deck/digital/stalker.png
 typst compile --format svg stalker-board.typ stalker-board.svg
@@ -142,6 +142,7 @@ typst compile --format svg draft-flaming-arrow.typ out/draft-flaming-arrow.svg
 typst compile --format svg draft-venomous-arrow.typ out/draft-venomous-arrow.svg
 typst compile --format svg draft-thrown-shield.typ out/draft-thrown-shield.svg
 typst compile --format svg draft-unexpected-angle.typ out/draft-unexpected-angle.svg
+typst compile --format svg draft-loose.typ out/draft-loose.svg
 typst compile --format svg draft-step-back.typ out/draft-step-back.svg
 typst compile --format svg draft-revenge.typ out/draft-revenge.svg
 typst compile --format svg draft-flaming-sword.typ out/draft-flaming-sword.svg
