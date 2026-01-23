@@ -184,8 +184,6 @@ typst compile --format svg golem-leyline.typ out/golem-leyline.svg
 typst compile --format png golem-leyline.typ out/golem-leyline.png
 typst compile --format pdf leylinedeck-physical.typ out/deck/physical/leylinedeck.pdf
 typst compile --format png leylinedeck-digital.typ out/deck/digital/leylinedeck.png
-typst compile --format pdf all-physical.typ out/deck/physical/all.pdf
-typst compile --format png all-digital.typ out/deck/digital/all.png
 typst compile --format svg trigger-TwoReds.typ out/trigger-TwoReds.svg
 typst compile --format png trigger-TwoReds.typ out/trigger-TwoReds.png
 typst compile --format svg trigger-TwoBlues.typ out/trigger-TwoBlues.svg
